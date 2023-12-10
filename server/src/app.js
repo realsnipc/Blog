@@ -20,7 +20,7 @@ const origin = process.env.CLIENT_URL || 'http://localhost:5173'; // Client URL 
 app.use(cors({ credentials: true, origin: origin }));
 app.use(express.json());
 app.use(cookieParser());
-app.use('/uploads',express.static(__dirname + '/uploads'))
+app.use('/uploads', express.static(__dirname + '/uploads'));
 const secret = 'mynameislakhanfourtwokakonwhowsisyourmom';
 
 
@@ -61,36 +61,36 @@ app.post('/login', async (req, res) => {
 app.post('/post', upload.single('file'), async (req, res) => {
     try {
         const { originalname, path } = req.file;
-    const parts = originalname.split('.');
-    const ext = parts[parts.length - 1];
-    const newPath = path + '.' + ext;
-    const splitPath= newPath.split('src')
-    fs.renameSync(path, newPath);
+        const parts = originalname.split('.');
+        const ext = parts[parts.length - 1];
+        const newPath = path + '.' + ext;
+        const splitPath = newPath.split('src');
+        fs.renameSync(path, newPath);
 
-    const { token } = req.cookies;
-    jwt.verify(token, secret, {},async (err, info) => {
-        if (err) throw err;
-        const { title, summary, content } = req.body;
-        const postDoc = await new postModel({
-            title,
-            summary,
-            content,
-            cover: splitPath[1],
-            author: info.id
+        const { token } = req.cookies;
+        jwt.verify(token, secret, {}, async (err, info) => {
+            if (err) throw err;
+            const { title, summary, content } = req.body;
+            const postDoc = await new postModel({
+                title,
+                summary,
+                content,
+                cover: splitPath[1],
+                author: info.id
+            });
+            postDoc.save();
+            res.json(postDoc);
         });
-        postDoc.save();
-        res.json(postDoc)
-    });
-        
+
     } catch (error) {
-        res.json("Error Occured")
-        
+        res.json("Error Occured");
+
     }
-    
+
 });
 
 app.get('/post', async (req, res) => {
-    const posts = await postModel.find().populate('author',['username']).sort({createdAt:-1});
+    const posts = await postModel.find().populate('author', ['username']).sort({ createdAt: -1 });
     res.json(posts);
 });
 
@@ -107,11 +107,46 @@ app.get('/logout', (req, res) => {
     res.cookie('token', '').json('ok');
 });
 
-app.get('/post/:id', async (req, res)=>{
-    const {id} = req.params
-    const postRes= await postModel.findById(id).populate('author',['username']);
-    res.json(postRes)
-})
+app.get('/post/:id', async (req, res) => {
+    const { id } = req.params;
+    const postRes = await postModel.findById(id).populate('author', ['username']);
+    res.json(postRes);
+});
+
+app.put('/post/:id', upload.single('file'), async (req, res) => {
+    const { token } = req.cookies;
+    jwt.verify(token, secret, {}, async (err, info) => {
+        if (err) throw err;
+        const { id, title, summary, content } = req.body;
+        const postDoc = await postModel.findById(id);
+        const isAuthor = JSON.stringify(postDoc.author) === JSON.stringify(info.id);
+
+        let newPath = null;
+        let splitPath = null
+        if (req.file) {
+            const { originalname, path } = req.file;
+            const parts = originalname.split('.');
+            const ext = parts[parts.length - 1];
+            newPath = path + '.' + ext;
+            splitPath = newPath.split('src');
+            fs.renameSync(path, newPath);
+        }
+
+
+        if (!isAuthor) {
+            res.status(400).json("Not the author");
+        }else{
+
+        await postModel.findOneAndUpdate({_id:id},{
+            title,
+            summary,
+            content,
+            cover: newPath ? splitPath[1] : postDoc.cover
+        })
+        // res.json(updatedDoc)
+        res.json('ok')
+}});
+});
 
 
 

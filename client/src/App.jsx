@@ -7,6 +7,7 @@ import { Outlet, Route, Routes } from 'react-router-dom';
 import CreatePost from './pages/CreatePost';
 import IndexPage from './pages/IndexPage/IndexPage';
 import PostPage from './pages/PostPage';
+import EditPage from './pages/EditPage';
 
 function App() {
 
@@ -34,6 +35,10 @@ function App() {
 
             <Route path='/post/:id' element={
               <PostPage/>}>
+            </Route>
+
+            <Route path='/edit/:id' element={
+              <EditPage/>}>
             </Route>
 
 
