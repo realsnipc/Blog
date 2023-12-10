@@ -24,6 +24,9 @@ app.use('/uploads', express.static(__dirname + '/uploads'));
 const secret = 'mynameislakhanfourtwokakonwhowsisyourmom';
 
 
+app.get('/',(req, res) => {
+    res.send('Hello World!')
+})
 // match user password to database 
 app.post('/login', async (req, res) => {
     try {
