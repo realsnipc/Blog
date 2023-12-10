@@ -25,9 +25,9 @@ function CreatePost() {
     ],
   };
 
-  // if(userInfo==null || userInfo==false){
-  //     return <Navigate to='/'></Navigate>
-  // }
+  if(userInfo==null || userInfo==false){
+      return <Navigate to='/'></Navigate>
+  }
 
   async function createNewPost(ev) {
     ev.preventDefault();

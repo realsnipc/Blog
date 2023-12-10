@@ -20,7 +20,7 @@ VITE_SERVER= Backend endpoint (eg. api.example.com/)
 
 #### To-do
 
-- [ ] Skip JWT if user is not logged in
+- [x] Skip JWT if user is not logged in
 - [ ] Check if user is logged in on create page
 - [ ] Check if user is submitting all contents in post
 - [ ] Make website responsive
