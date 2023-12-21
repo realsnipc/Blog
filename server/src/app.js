@@ -143,6 +143,23 @@ app.get('/isLogged', async(req, res)=>{
 
     })
 })
+app.delete('/post/:id',async (req, res)=>{
+    const {token}= req.cookies;
+    const postDoc= await postModel.findById({_id:req.params.id})
+    jwt.verify(token,secret,{},async (err,info)=>{
+        if(err){
+            res.status(400).json("JWT_Error")
+            console.log(err)
+        }
+        else if(JSON.stringify(postDoc.author)==JSON.stringify(info.id)){
+            postDoc.deleteOne({})
+            res.status(200).json("Sucess")
+        }else{
+            res.status(400).json("Error")
+        }
+    })
+
+})
 
 
 
