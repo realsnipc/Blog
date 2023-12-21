@@ -6,11 +6,12 @@ Just a blog in development 🍃
 - [x] Add a way to delete posts
 - [ ] Add animation
 - [ ] Add dark mode
-- [ ] Fix Logout
-- [ ] Hide Edit and Delete Button If author and user is not same
+- [ ] Improve Title Font on Index and Post Page
+- [x] Fix Logout
+- [x] Hide Edit and Delete Button If author and user is not same
 - [ ] Add User Avatar
 - [ ] Basic Footer
-- [ ] Replace Alerts With Toast Notification ( At Login,Edit,Delete)
+- [ ] Replace Alerts With Toast Notification [At Login,Edit,Delete (Success & UnSuccess)]
 
 ##### Future Plans
 

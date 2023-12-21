@@ -1,11 +1,13 @@
-import React,{useState} from 'react';
+import React,{useState,useContext} from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
+import { UserContext } from '../UserContext';
 
 function PostPage() {
   const params = useParams();
   const [postInfo, setPostInfo] = useState(null);
   const backendUrl = import.meta.env.VITE_SERVER || "http://localhost:7777";
   const [redirect, setRedirect] = useState(false);
+  const { setUserInfo, userInfo } = useContext(UserContext);
 
   React.useEffect(() => {
     const getPostData = async () => {
@@ -38,6 +40,8 @@ function PostPage() {
       <div id="head">
         <h1 className='text-3xl mt-7 mb-7 font-work text-center font-semiboldbold'>{postInfo.title}</h1>
 
+
+{ postInfo.author._id== userInfo.id &&
         <span className="flex gap-3 justify-center mb-2">
           <div id="edit_container" className='flex items-center justify-center'>
             <Link to={`/edit/${postInfo._id}`} className='border-black border p-2 rounded-md' href="">Edit</Link>
@@ -46,7 +50,7 @@ function PostPage() {
           <div id="delete_container" className='flex items-center justify-center'>
             <Link onClick={deletePost} className='border-black border p-2 rounded-md' href="">Delete</Link>
           </div>
-        </span>
+        </span>}
 
       </div>
       <div id="imgDiv" className='flex justify-center flex-col'>
