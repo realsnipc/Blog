@@ -43,7 +43,7 @@ function Header() {
   return (
     <>
       <header>
-        <Link id='logo' to='/'>Sni<span>Diary</span></Link>
+        <Link id='logo' to='/'>Sni<span>Blogs</span></Link>
         <nav>
           {/* set navbar if username (i.e userInfo) is available */}
           {

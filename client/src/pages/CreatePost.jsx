@@ -1,4 +1,4 @@
-import { React, useContext, useState } from 'react';
+import { React, useContext, useEffect, useState } from 'react';
 import { UserContext } from '../UserContext';
 import { Navigate } from 'react-router-dom';
 import ReactQuill from 'react-quill';
@@ -9,12 +9,11 @@ function CreatePost() {
   const [title, setTitle] = useState('');
   const [summary, setSummary] = useState('');
   const [content, setContent] = useState('');
-  const [file, setFile] = useState('');
   const [redirect,setRedirect] = useState(false)
   const [error, setError] = useState('');
   const backendUrl = import.meta.env.VITE_SERVER || "http://localhost:7777";
 
-
+// ReactQuill Modules 
   const modules = {
     toolbar: [
       [{ 'header': [1, 2, false] }],
@@ -24,28 +23,35 @@ function CreatePost() {
       ['clean']
     ],
   };
+  
 
-  if(userInfo==null || userInfo==false){
-      return <Navigate to='/'></Navigate>
-  }
-
+  // Create new post 
   async function createNewPost(ev) {
     ev.preventDefault();
-
-    const data = new FormData();
-    data.set('title', title);
-    data.set('summary', summary);
-    data.set('content', content);
-    data.set('file', file[0]);
+    if(!title || !summary || !content){
+      alert("Fill all contents")
+    }else{
+    const data= {title,summary,content}
     const reponse = await fetch(backendUrl + '/post', {
       method: 'POST',
-      body: data,
-      credentials: 'include'
+      body: JSON.stringify(data),
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' }
     });
     if (reponse.ok){
       setRedirect(true)
-    }
+    }}
   }
+  
+async function redirectNotLogin(){
+  const isLogged = await fetch(backendUrl + '/isLogged', {
+    credentials: 'include',
+  });
+  if (await isLogged.json()==false){
+    setRedirect(true)
+  }
+}
+redirectNotLogin()
 
 
   if (redirect){
@@ -60,9 +66,9 @@ function CreatePost() {
         <input type="summary" className='border-4 p-1 rounded-xl font-work' placeholder='Summary' value={summary} onChange={(ev) => {
           setSummary(ev.target.value);
         }} />
-        <input type="file" className='border-4 p-1 rounded-xl font-work' onChange={(ev) => {
+        {/* <input type="file" className='border-4 p-1 rounded-xl font-work' onChange={(ev) => {
           setFile(ev.target.files);
-        }} />
+        }} /> */}
         <ReactQuill theme="snow" value={content} onChange={setContent} modules={modules} />
         <button className='border-2 p-1 rounded-xl bg-[#333] text-[#e0dfdf] font-work mt-5' onClick={createNewPost} >Post</button>
 

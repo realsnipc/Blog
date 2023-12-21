@@ -7,8 +7,6 @@ function EditPage() {
   let [title, setTitle] = useState('');
   let [summary, setSummary] = useState('');
   let [content, setContent] = useState('');
-  let [file, setFile] = useState('');
-  let [cover,setCover]= useState('')
   let [redirect, setRedirect] = useState(false);
   let { id } = useParams();
   let backend = import.meta.env.VITE_SERVER || "http://localhost:7777";
@@ -39,16 +37,9 @@ function EditPage() {
 
   async function updatePost(ev) {
     ev.preventDefault()
-
-    const data = new FormData();
-    data.set('title', title);
-    data.set('summary', summary);
-    data.set('content', content);
-    data.set('file', file[0]);
-    data.set('id',id)
     await fetch(backend+'/post/'+id,{
       method: 'PUT',
-      body: data,
+      body: JSON.stringify({title:title,summary:summary,content:content}),
       credentials: 'include'
     });
     setRedirect(true);

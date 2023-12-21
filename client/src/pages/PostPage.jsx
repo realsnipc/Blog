@@ -29,8 +29,6 @@ function PostPage() {
     </div>
     </div>
     <div id="imgDiv" className='flex justify-center flex-col'>
-
-<img src={backendUrl+postInfo.cover} alt="" className='rounded-md h-max w-screen'/>
 </div>
 
 

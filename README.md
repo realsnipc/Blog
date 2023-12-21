@@ -4,10 +4,11 @@ Just a blog in development 🍃
 ##### Important
 
 - [x] Skip JWT if user is not logged in
-- [ ] Check if user is logged in on create page
-- [ ] Check if user is submitting all contents in post
+- [x] Remove Image
+- [x] Check if user is logged in on create page
+- [x] Check if user is submitting all contents in post
 - [ ] Make website responsive
-- [ ] Revamp the Index
+- [x] Revamp the Index
 
 ##### Features
 
