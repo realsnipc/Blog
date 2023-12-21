@@ -7,14 +7,14 @@ Just a blog in development 🍃
 - [x] Remove Image
 - [x] Check if user is logged in on create page
 - [x] Check if user is submitting all contents in post
-- [ ] Make website responsive
+- [x] Make website responsive
 - [x] Revamp the Index
 
 ##### Features
 
-- [ ] Add comments and clean the code
+- [x] Add comments and clean the code
 - [ ] Add a way to delete posts
-- [ ] Add a way to edit posts
+- [x] Add a way to edit posts
 - [x] Add author to posts
 
 ##### UI Improvements

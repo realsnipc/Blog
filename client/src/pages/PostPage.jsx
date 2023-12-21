@@ -24,9 +24,17 @@ function PostPage() {
 
     <div id="head">
     <h1 className='text-3xl mt-7 mb-7 font-work text-center font-semiboldbold'>{postInfo.title}</h1>
+
+    <span className="flex gap-3 justify-center mb-2">
     <div id="edit_container" className='flex items-center justify-center'>
-      <Link to={`/edit/${postInfo._id}`}className='border-white border p-3 rounded-md'href="">Edit</Link>
+      <Link to={`/edit/${postInfo._id}`}className='border-black border p-2 rounded-md'href="">Edit</Link>
     </div>
+
+    <div id="delete_container" className='flex items-center justify-center'>
+      <Link to={`/edit/${postInfo._id}`}className='border-black border p-2 rounded-md'href="">Delete</Link>
+    </div>
+    </span>
+
     </div>
     <div id="imgDiv" className='flex justify-center flex-col'>
 </div>

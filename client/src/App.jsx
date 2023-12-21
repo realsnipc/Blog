@@ -8,6 +8,7 @@ import CreatePost from './pages/CreatePost';
 import IndexPage from './pages/IndexPage/IndexPage';
 import PostPage from './pages/PostPage';
 import EditPage from './pages/EditPage';
+import STT from '../src/script/STT'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path='/' element={
             <main>
+              <STT/>
               <Header />
               <Outlet />
             </main>} >
