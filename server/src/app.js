@@ -94,7 +94,7 @@ app.get('/profile', (req, res) => {
     const { token } = req.cookies;
     jwt.verify(token, secret, {}, (err, info) => {
         if (err){
-            res.status(200).json('User not logged in')
+            res.status(200).json('Login_Error')
         }else{
         res.json(info);}
     });
@@ -152,8 +152,8 @@ app.delete('/post/:id',async (req, res)=>{
             console.log(err)
         }
         else if(JSON.stringify(postDoc.author)==JSON.stringify(info.id)){
-            postDoc.deleteOne({})
-            res.status(200).json("Sucess")
+            await postModel.findByIdAndDelete({_id:req.params.id})
+            res.status(200).json("Success")
         }else{
             res.status(400).json("Error")
         }

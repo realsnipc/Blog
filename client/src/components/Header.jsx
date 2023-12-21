@@ -28,8 +28,10 @@ function Header() {
           credentials: 'include',
         }).then(res => {
           res.json().then(userInfo => {
-            setUserInfo(userInfo);
-
+            if(userInfo=='Login_Error'){
+              setUserInfo(null)
+            }else{
+            setUserInfo(userInfo);}
           });
         });
       }
