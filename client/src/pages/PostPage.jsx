@@ -50,7 +50,7 @@ function PostPage() {
     <>
 
       <div id="head">
-        <h1 className='text-3xl mt-7 mb-7 font-work text-center font-semiboldbold'>{postInfo.title}</h1>
+        <h1 className='text-3xl mt-7 mb-7 font-inter text-center'>{postInfo.title}</h1>
 
 
         {Logged &&  userInfo.id==postInfo.author._id && 

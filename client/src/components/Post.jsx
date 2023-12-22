@@ -10,7 +10,7 @@ function Post({ title, summary, createdAt,author,_id }) {
     <Link to={`/post/${_id}`}>
       <div className="entry flex-wrap">
         <div className="text_entry">
-          <h2>{title}</h2>
+          <h2 className='font-inter'>{title}</h2>
           <p>{summary}</p>
           <p className='mt-3'><span className='font-semibold '>{authorName}</span> - {format(new Date(createdAt),'MMM d, yyyy')}</p>
 

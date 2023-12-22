@@ -8,6 +8,7 @@ export default {
     extend: {},
     fontFamily: {
       'work': ['"Work Sans"', 'sans-serif'],
+      'nunito': ['"Nunito Sans"', 'sans-serif'],
       'inter': ['Inter', 'serif'] // Ensure fonts with spaces have " " surrounding it.
     }
   },
