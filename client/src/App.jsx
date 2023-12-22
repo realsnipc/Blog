@@ -10,6 +10,7 @@ import PostPage from './pages/PostPage';
 import EditPage from './pages/EditPage';
 import STT from '../src/script/STT'
 
+
 function App() {
 
   return (
@@ -17,7 +18,7 @@ function App() {
       <UserContextProvider>
         <Routes>
           <Route path='/' element={
-            <main>
+            <main className='animate__animated animate__fadeInDown animate-slower'>
               <STT/>
               <Header />
               <Outlet />

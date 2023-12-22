@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { UserContext } from '../UserContext';
+import 'animate.css';
 
 function PostPage() {
   const params = useParams();
@@ -48,7 +49,7 @@ function PostPage() {
 
   return (
     <>
-
+<div className='animate__animated animate__fadeInDown animate-slower'>
       <div id="head">
         <h1 className='text-3xl mt-7 mb-7 font-inter text-center'>{postInfo.title}</h1>
 
@@ -72,6 +73,7 @@ function PostPage() {
       <div id="content">
 
         <div dangerouslySetInnerHTML={{ __html: postInfo.content }}></div>
+      </div>
       </div>
     </>
   );

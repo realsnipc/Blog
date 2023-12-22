@@ -1,19 +1,10 @@
 # SniBlog
-Just a blog in development 🍃
+Source code of my blog. I upload random articles here about my experiences, daily life and everything I ever want to share 🍃
 
-#### TODO
-
-- [ ] Add animation
-- [ ] Add dark mode
-- [ ] Add User Avatar
-- [ ] Basic Footer
-- [ ] Replace Alerts With Toast Notification
-
-##### Future Plans
-
-- [ ] User Dashboard
-
-
+### Tech Stack
+- React.js
+- Express.js
+- MongoDB + Mongoose
 
 ##  Deployment Setup
 
