@@ -40,7 +40,10 @@ function EditPage() {
     await fetch(backend+'/post/'+id,{
       method: 'PUT',
       body: JSON.stringify({title:title,summary:summary,content:content}),
-      credentials: 'include'
+      credentials: 'include',
+      headers:{
+        'Content-Type':'application/json'
+      }
     });
     setRedirect(true);
   }

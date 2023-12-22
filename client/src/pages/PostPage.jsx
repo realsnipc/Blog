@@ -1,38 +1,50 @@
-import React,{useState,useContext} from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { UserContext } from '../UserContext';
 
 function PostPage() {
   const params = useParams();
-  const [postInfo, setPostInfo] = useState(null);
+  const [postInfo, setPostInfo] = useState();
   const backendUrl = import.meta.env.VITE_SERVER || "http://localhost:7777";
   const [redirect, setRedirect] = useState(false);
+  const [Logged, setLogged] = useState();
   const { setUserInfo, userInfo } = useContext(UserContext);
+
+
 
   React.useEffect(() => {
     const getPostData = async () => {
       const response = await fetch(backendUrl + `/post/${params.id}`);
       const fetchedInfo = await response.json();
       setPostInfo(fetchedInfo);
+
+      if(userInfo){
+        setLogged(true)
+      }
     };
     getPostData();
 
   }, []);
 
+
   async function deletePost() {
 
     await fetch(backendUrl + '/post/' + params.id, {
       method: 'DELETE',
-      credentials:'include'
+      credentials: 'include'
     });
     setRedirect(true);
   }
 
-  if (redirect){
-    return <Navigate to={'/'} />}
+
+
+  if (redirect) {
+    return <Navigate to={'/'} />;
+  }
   if (!postInfo) {
     return <div>Loading...</div>;
   }
+
 
   return (
     <>
@@ -41,16 +53,16 @@ function PostPage() {
         <h1 className='text-3xl mt-7 mb-7 font-work text-center font-semiboldbold'>{postInfo.title}</h1>
 
 
-{ postInfo.author._id== userInfo.id &&
-        <span className="flex gap-3 justify-center mb-2">
-          <div id="edit_container" className='flex items-center justify-center'>
-            <Link to={`/edit/${postInfo._id}`} className='border-black border p-2 rounded-md' href="">Edit</Link>
-          </div>
+        {Logged &&  userInfo.id==postInfo.author._id && 
+          <span className="flex gap-3 justify-center mb-2">
+            <div id="edit_container" className='flex items-center justify-center'>
+              <Link to={`/edit/${postInfo._id}`} className='border-black border p-2 rounded-md' href="">Edit</Link>
+            </div>
 
-          <div id="delete_container" className='flex items-center justify-center'>
-            <Link onClick={deletePost} className='border-black border p-2 rounded-md' href="">Delete</Link>
-          </div>
-        </span>}
+            <div id="delete_container" className='flex items-center justify-center'>
+              <Link onClick={deletePost} className='border-black border p-2 rounded-md' href="">Delete</Link>
+            </div>
+          </span>}
 
       </div>
       <div id="imgDiv" className='flex justify-center flex-col'>

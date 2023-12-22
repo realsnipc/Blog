@@ -114,21 +114,19 @@ app.put('/post/:id', async (req, res) => {
     const { token } = req.cookies;
     jwt.verify(token, secret, {}, async (err, info) => {
         if (err) throw err;
-        const { id, title, summary, content } = req.body;
-        const postDoc = await postModel.findById(id);
+        const { title, summary, content } = req.body;
+        console.log(title,summary,content)
+        const postDoc = await postModel.findById({_id:req.params.id});
         const isAuthor = JSON.stringify(postDoc.author) === JSON.stringify(info.id);
 
         if (!isAuthor) {
             res.status(400).json("Not the author");
         }else{
-
-        await postModel.findOneAndUpdate({_id:id},{
-            title,
-            summary,
-            content
-        })
-        // res.json(updatedDoc)
-        res.json('ok')
+            postDoc.title= title
+            postDoc.summary= summary
+            postDoc.content= content
+            await postDoc.save()
+        res.status(200).json(postDoc)
 }});
 });
 
@@ -151,7 +149,7 @@ app.delete('/post/:id',async (req, res)=>{
             res.status(400).json("JWT_Error")
             console.log(err)
         }
-        else if(JSON.stringify(postDoc.author)==JSON.stringify(info.id)){
+        else if(postDoc.author._id==info.id){
             await postModel.findByIdAndDelete({_id:req.params.id})
             res.status(200).json("Success")
         }else{
