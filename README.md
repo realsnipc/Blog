@@ -1,5 +1,5 @@
 # SniBlog
-Source code of my blog. I upload random articles here about my experiences, daily life and everything I ever want to share 🍃
+Source code of my blog. I upload random articles here about my experiences, daily life and anyything I want to share 🍃
 
 ### Tech Stack
 - React.js
