@@ -4,7 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
+header{
+    transition: 0.3s;
+}
 
 :root{
     --primary: #333;

@@ -6,7 +6,7 @@ import 'animate.css';
 
 function Login() {
 
-// login form 
+// login form
   const [username,setUsername]= useState("")
   const [password,setPassword]= useState("")
 
@@ -30,7 +30,20 @@ function Login() {
       response.json().then(userinfo =>{
         // Set userInfo after user authenticated successfully
         setUserInfo(userinfo)
+        
+
+        // Make nav unresponsive for few moments
+        const header= document.getElementById('header')
+        header.style.pointerEvents= 'none';
+        header.style.filter = 'blur(3px)';
         setRedirect(true)
+
+        setTimeout(()=>{
+          header.style.pointerEvents= 'auto';
+          header.style.filter = 'blur(0px)';
+
+        },1000)
+
       })
       
     }else if (response.notExist){
