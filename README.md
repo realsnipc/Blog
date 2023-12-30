@@ -23,4 +23,14 @@ Environment variables in `client/.env`
 VITE_SERVER= Backend endpoint (eg. api.example.com)
 ```
 
+### TODO
+
+- [ ] Add a cool favicon
+- [ ] Fix logout
+- [ ] Fix routes (react routing is hard :< )
+- [ ] Add pagination
+- [ ] Change animation library
+- [ ] Add some articles
+- [ ] Add a footer
+
 
