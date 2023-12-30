@@ -44,7 +44,7 @@ function Header() {
   }, []);
   return (
     <>
-      <header id='header'>
+      <header id='header' className=''>
         <Link id='logo' to='/'>Sni<span>Blog</span></Link>
         <nav>
           {/* set navbar if username (i.e userInfo) is available */}

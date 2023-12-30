@@ -23,10 +23,4 @@ Environment variables in `client/.env`
 VITE_SERVER= Backend endpoint (eg. api.example.com)
 ```
 
-### TODO
-
-- [ ] Add pagination
-- [ ] Change animation library
-- [ ] Add some articles
-
 

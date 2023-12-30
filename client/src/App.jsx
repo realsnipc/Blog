@@ -19,7 +19,7 @@ function App() {
       <UserContextProvider>
         <Routes>
           <Route path='/' element={
-            <main className='animate__animated animate__fadeInDown animate-slower'>
+            <main className='animated tdFadeIn'>
               <STT/>
               <Header />
               <Outlet />

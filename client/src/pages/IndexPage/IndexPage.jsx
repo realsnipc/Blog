@@ -10,7 +10,7 @@ export default function IndexPage() {
 
     return (
         <>
-        <div>
+        <div className='animated tdFadeIn'>
         {posts.length > 0 && posts.map(post=>(<Post {...post}/>))}
         {console.clear()}</div>
         </>

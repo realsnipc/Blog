@@ -42,13 +42,13 @@ function PostPage() {
     return <Navigate to={'/'} />;
   }
   if (!postInfo) {
-    return <div>Loading...</div>;
+    return <div className='animated tdFadeIn'></div>;
   }
 
 
   return (
     <>
-<div>
+<div className='animated tdFadeIn'>
       <div id="head">
         <h1 className='text-3xl mt-7 mb-7 font-inter text-center'>{postInfo.title}</h1>
 
