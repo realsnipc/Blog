@@ -62,7 +62,7 @@ function Header() {
             !userInfo && (
               <>
                 <Link to="/login" className='nav_item'>Login</Link>
-                <Link to="" className='nav_item'>Source</Link>
+                <Link to="https://github.com/realsnipc/blog" className='nav_item'>Source</Link>
               </>
             )
           }

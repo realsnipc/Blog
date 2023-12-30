@@ -1,8 +1,6 @@
 import React, { useState , useContext} from 'react'
 import {Navigate} from 'react-router-dom'
 import {UserContext} from '../UserContext'
-import 'animate.css';
-
 
 function Login() {
 
@@ -64,7 +62,7 @@ function Login() {
     return <Navigate to='/'/>
   }
   return (
-    <div className="flex justify-center flex-col items-center animate__animated animate__fadeInDown animate-slower">
+    <div className="flex justify-center flex-col items-center">
       <h1 className='font-work text-2xl font-bold'>Sudo Login</h1>
 
       <form action="" className='flex flex-col'>
