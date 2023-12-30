@@ -67,7 +67,7 @@ function Login() {
 
       <form action="" className='flex flex-col'>
 
-        <input type="text" placeholder='username'name="" className='bg-bg border-solid border-gray-500 border rounded-md w-96 h-8 mt-5 p-3' value={username} onChange={(event=>{
+        <input type="text" placeholder='username'name="" className='bg-bg border-solid border-gray-500 border rounded-md h-8 mt-5 p-3 ' value={username} onChange={(event=>{
           setUsername(event.target.value)
         })}/>
         <input type="text" placeholder='password'className="bg-bg border-solid border-gray-500 border rounded-md mt-1 h-8 p-3" value={password}onChange={(event=>{

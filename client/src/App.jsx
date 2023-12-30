@@ -9,6 +9,7 @@ import IndexPage from './pages/IndexPage/IndexPage';
 import PostPage from './pages/PostPage';
 import EditPage from './pages/EditPage';
 import STT from '../src/script/STT'
+import Footer from './components/Footer';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
               <STT/>
               <Header />
               <Outlet />
+              <Footer/>
             </main>} >
 
             <Route path='/' element={
