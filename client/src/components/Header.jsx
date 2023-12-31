@@ -17,7 +17,6 @@ function Header() {
       credentials: 'include'
     });
     setUserInfo(false);
-    window.location = "/";
   }
   // Get user data 
   useEffect(() => {

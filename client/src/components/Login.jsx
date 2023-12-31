@@ -28,20 +28,7 @@ function Login() {
       response.json().then(userinfo =>{
         // Set userInfo after user authenticated successfully
         setUserInfo(userinfo)
-        
-
-        // Make nav unresponsive for few moments
-        const header= document.getElementById('header')
-        header.style.pointerEvents= 'none';
-        header.style.filter = 'blur(3px)';
         setRedirect(true)
-
-        setTimeout(()=>{
-          header.style.pointerEvents= 'auto';
-          header.style.filter = 'blur(0px)';
-
-        },1000)
-
       })
       
     }else if (response.notExist){
@@ -62,7 +49,7 @@ function Login() {
     return <Navigate to='/'/>
   }
   return (
-    <div className="flex justify-center flex-col items-center">
+    <div className="flex justify-center flex-col items-center animated tdFadeIn">
       <h1 className='font-work text-2xl font-bold'>Sudo Login</h1>
 
       <form action="" className='flex flex-col'>

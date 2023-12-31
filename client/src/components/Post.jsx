@@ -8,7 +8,7 @@ function Post({ title, summary, createdAt,author,_id }) {
   return (
     <>
     <Link to={`/post/${_id}`}>
-      <div className="entry flex-wrap">
+      <div className="entry flex-wrap animated tdFadeIn">
         <div className="text_entry">
           <h2 className='font-inter'>{title}</h2>
           <p>{summary}</p>
