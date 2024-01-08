@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../UserContext';
+import { GiCoolSpices } from "react-icons/gi";
 
 function Header() {
   const { setUserInfo, userInfo } = useContext(UserContext);
@@ -45,7 +46,7 @@ function Header() {
   return (
     <>
       <header id='header' className=''>
-        <Link id='logo' to='/'>Sni<span>Blog</span></Link>
+        <Link id='logo' to='/'><GiCoolSpices /></Link>
         <nav>
           {/* set navbar if username (i.e userInfo) is available */}
           {
