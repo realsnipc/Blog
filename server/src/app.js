@@ -21,7 +21,7 @@ app.use(cookieParser());
 const secret = 'mynameislakhanfourtwokakonwhowsisyourmom';
 
 
-app.get('/',(req, res) => {
+app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 // match user password to database 
@@ -63,19 +63,20 @@ app.post('/post', async (req, res) => {
     try {
         const { token } = req.cookies;
         jwt.verify(token, secret, {}, async (err, info) => {
-            if (err){
+            if (err) {
                 res.status(400)
-            }else{
-            console.log(req.body)
-            const postDoc = await new postModel({
-                title,
-                summary,
-                content,
-                author: info.id
-            });
-            await postDoc.save();
-            res.json(postDoc);
-        }});
+            } else {
+                console.log(req.body)
+                const postDoc = await new postModel({
+                    title,
+                    summary,
+                    content,
+                    author: info.id
+                });
+                await postDoc.save();
+                res.json(postDoc);
+            }
+        });
 
     } catch (error) {
         res.json("Error Occured");
@@ -93,10 +94,11 @@ app.get('/post', async (req, res) => {
 app.get('/profile', (req, res) => {
     const { token } = req.cookies;
     jwt.verify(token, secret, {}, (err, info) => {
-        if (err){
+        if (err) {
             res.status(200).json('Login_Error')
-        }else{
-        res.json(info);}
+        } else {
+            res.json(info);
+        }
     });
 });
 
@@ -115,44 +117,45 @@ app.put('/post/:id', async (req, res) => {
     jwt.verify(token, secret, {}, async (err, info) => {
         if (err) throw err;
         const { title, summary, content } = req.body;
-        console.log(title,summary,content)
-        const postDoc = await postModel.findById({_id:req.params.id});
+        console.log(title, summary, content)
+        const postDoc = await postModel.findById({ _id: req.params.id });
         const isAuthor = JSON.stringify(postDoc.author) === JSON.stringify(info.id);
 
         if (!isAuthor) {
             res.status(400).json("Not the author");
-        }else{
-            postDoc.title= title
-            postDoc.summary= summary
-            postDoc.content= content
+        } else {
+            postDoc.title = title
+            postDoc.summary = summary
+            postDoc.content = content
             await postDoc.save()
-        res.status(200).json(postDoc)
-}});
+            res.status(200).json(postDoc)
+        }
+    });
 });
 
-app.get('/isLogged', async(req, res)=>{
-    const {token}= req.cookies
-    jwt.verify(token,secret,{}, (err,info)=>{
-        if (err){
+app.get('/isLogged', async (req, res) => {
+    const { token } = req.cookies
+    jwt.verify(token, secret, {}, (err, info) => {
+        if (err) {
             res.json(false)
-        }else{
+        } else {
             res.json(true)
         }
 
     })
 })
-app.delete('/post/:id',async (req, res)=>{
-    const {token}= req.cookies;
-    const postDoc= await postModel.findById({_id:req.params.id})
-    jwt.verify(token,secret,{},async (err,info)=>{
-        if(err){
+app.delete('/post/:id', async (req, res) => {
+    const { token } = req.cookies;
+    const postDoc = await postModel.findById({ _id: req.params.id })
+    jwt.verify(token, secret, {}, async (err, info) => {
+        if (err) {
             res.status(400).json("JWT_Error")
             console.log(err)
         }
-        else if(postDoc.author._id==info.id){
-            await postModel.findByIdAndDelete({_id:req.params.id})
+        else if (postDoc.author._id == info.id) {
+            await postModel.findByIdAndDelete({ _id: req.params.id })
             res.status(200).json("Success")
-        }else{
+        } else {
             res.status(400).json("Error")
         }
     })
