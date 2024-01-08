@@ -12,11 +12,12 @@ function Header() {
   }
 
   // Clear token on logout
-  function logout() {
-    fetch(backendUrl + '/logout', {
+  async function logout() {
+    await fetch(backendUrl + '/logout', {
       credentials: 'include'
     });
     setUserInfo(false);
+    window.location="/"
   }
   // Get user data 
   useEffect(() => {
