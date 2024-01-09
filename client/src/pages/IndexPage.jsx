@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Post from '../../components/Post';
+import Post from '../components/PostCard';
 
 export default function IndexPage() {
     const backendUrl = import.meta.env.VITE_SERVER || "http://localhost:7777";

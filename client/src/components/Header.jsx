@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../UserContext';
 import { GiCoolSpices } from "react-icons/gi";
+import catPfp from '../assets/pfp.png'
 
 function Header() {
   const { setUserInfo, userInfo } = useContext(UserContext);
@@ -17,7 +18,7 @@ function Header() {
       credentials: 'include'
     });
     setUserInfo(false);
-    window.location="/"
+    window.location = "/"
   }
   // Get user data 
   useEffect(() => {
@@ -28,10 +29,11 @@ function Header() {
           credentials: 'include',
         }).then(res => {
           res.json().then(userInfo => {
-            if(userInfo=='Login_Error'){
+            if (userInfo == 'Login_Error') {
               setUserInfo(null)
-            }else{
-            setUserInfo(userInfo);}
+            } else {
+              setUserInfo(userInfo);
+            }
           });
         });
       }
@@ -51,7 +53,7 @@ function Header() {
           {
             userInfo && (
               <>
-                <Link className='nav_item'>{username}</Link>
+                <Link to='/user' className='nav_item'>                <img src={catPfp} alt="pfp" className='w-7 rounded-2xl h-7 cursor-pointer' /></Link>
                 <Link to='/create' className='nav_item'>Create</Link>
                 <Link className='nav_item' onClick={logout}>Logout</Link>
               </>

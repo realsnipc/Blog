@@ -162,6 +162,21 @@ app.delete('/post/:id', async (req, res) => {
 
 })
 
+app.get('/user/:id/posts',(req,res)=>{
+const {token}= req.cookies
+let userId=req.params.id;
+jwt.verify(token,secret,{} ,async (err)=>{
+    if (err){
+        res.json(err)
+        res.status(400).json("JWT_Error")
+    }else{
+        // get specific user post from db 
+        let posts=await  postModel.find({ author :{_id: userId} })
+        res.json(posts)
+}
+})
+
+})
 
 
 

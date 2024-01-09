@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 
 function Post({ title, summary, createdAt,author,_id }) {
   const authorName = author.username
-  // const backendUrl = import.meta.env.VITE_SERVER || "http://localhost:7777";
   return (
     <>
     <Link to={`/post/${_id}`}>

@@ -1,15 +1,16 @@
 import './App.css';
 import { UserContextProvider } from './UserContext';
 import Header from './components/Header';
-import Login from './components/Login';
-import Post from './components/Post';
+import Login from './pages/Login';
+import Post from './components/PostCard';
 import { Outlet, Route, Routes } from 'react-router-dom';
 import CreatePost from './pages/CreatePost';
-import IndexPage from './pages/IndexPage/IndexPage';
+import IndexPage from './pages/IndexPage';
 import PostPage from './pages/PostPage';
 import EditPage from './pages/EditPage';
 import STT from '../src/script/STT'
 import Footer from './components/Footer';
+import UserPage from './pages/UserPage';
 
 
 function App() {
@@ -45,6 +46,12 @@ function App() {
             <Route path='/edit/:id' element={
               <EditPage/>}>
             </Route>
+
+            <Route path='/user' element={
+              <UserPage/>}>
+            </Route>
+
+            
 
 
 
