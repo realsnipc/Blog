@@ -13,7 +13,7 @@ export default function Footer() {
       <a href="https://github.com/realsnipc" className="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@snipc</a>
     </p>
     <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start gap-2 ">
-      <a href='https://x.com/realsnipc'><RiTwitterXLine /></a> 
+      <a href='https://x.com/realsnipc'><RiTwitterXLine /></a>  
       <a href="https://github.com/realsnipc"><FaGithub /></a>     
     </span>
   </div>

@@ -11,7 +11,6 @@ function Header() {
   if (userInfo) {
     var username = userInfo.username;
   }
-
   // Clear token on logout
   async function logout() {
     await fetch(backendUrl + '/logout', {
