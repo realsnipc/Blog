@@ -1,12 +1,18 @@
-# SniBlog
-Source code of my blog. I upload random articles here about my experiences, daily life or anything I want to share 🍃
+# Snip's Blog
+Source code of my personal blog. I upload articles here about my experiences, daily life and share my thoughts on random topics. 🍃
 
-### Tech Stack
+### Stack
 - React.js
 - Express.js
 - MongoDB + Mongoose
 
-##  Deployment Setup
+
+### Want to test?
+I've created test user with `t` as username and password. You can create, edit, delete posts. Your created posts will be only visible on user profile by clicking the profile picture and not visible on the homepage. 
+
+![img](./client/src/assets/Screenshot%202024-01-09%20135525.png)
+
+###  Wanna deploy yourself?
 
 #### Setup
 
@@ -22,13 +28,3 @@ Environment variables in `client/.env`
 ```/
 VITE_SERVER= Backend endpoint (eg. api.example.com)
 ```
-
-## TODO
-
-- [ ] Fix Username Spacing problem in mobile 
-- [ ] Add skeleton loading
-- [ ] Add test users
-- [ ] Adding test user docs in readme
-- [ ] Add user panel for his account
-- [ ] Add blogpage for the test users
-

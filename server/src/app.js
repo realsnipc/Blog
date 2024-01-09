@@ -37,7 +37,9 @@ app.post('/login', async (req, res) => {
             // logged in
 
             jwt.sign({ username, id: userdoc._id }, secret, {}, (err, token) => {
-                if (err) throw err;
+                if (err){
+                    res.status(400).json({"Error":'JWT ERROR'})
+                }
                 res.cookie('token', token).json({
                     id: userdoc._id,
                     username
@@ -47,15 +49,9 @@ app.post('/login', async (req, res) => {
             // res.status(200).json("Hogya");
         }
 
-
     } catch (error) {
         res.status(404).json("User registration Failed");
-
-
     }
-
-
-
 });
 
 app.post('/post', async (req, res) => {
@@ -86,7 +82,7 @@ app.post('/post', async (req, res) => {
 });
 
 app.get('/post', async (req, res) => {
-    const posts = await postModel.find().populate('author', ['username']).sort({ createdAt: -1 });
+    const posts = await postModel.find({author: {_id:"6560b1a7f5cfbbf5a6595efd"}}).populate('author', ['username']).sort({ createdAt: -1 });
     res.json(posts);
 });
 
