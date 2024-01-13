@@ -56,9 +56,6 @@ function EditPage() {
         <input type="summary" className='border-4 p-1 rounded-xl font-work' placeholder='Summary' value={summary} onChange={(ev) => {
           setSummary(ev.target.value);
         }} />
-        <input type="file" className='border-4 p-1 rounded-xl font-work' onChange={(ev) => {
-          setFile(ev.target.files);
-        }} />
         <ReactQuill theme="snow" value={content} onChange={setContent} modules={modules} />
         <button className='border-2 p-1 rounded-xl bg-[#333] text-[#e0dfdf] font-work mt-5' onClick={updatePost} >Post</button>
 

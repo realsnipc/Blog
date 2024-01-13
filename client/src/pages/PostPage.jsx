@@ -50,7 +50,7 @@ function PostPage() {
     <>
 <div className='animated tdFadeIn'>
       <div id="head animated tdFadeIn">
-        <h1 className='text-3xl mt-7 mb-7 font-inter text-center'>{postInfo.title}</h1>
+        <h1 className='text-3xl mt-7 mb-7 font-work text-center'>{postInfo.title}</h1>
 
 
         {Logged &&  userInfo.id==postInfo.author._id && 
@@ -71,7 +71,7 @@ function PostPage() {
 
       <div id="content">
 
-        <div dangerouslySetInnerHTML={{ __html: postInfo.content }}></div>
+        <div dangerouslySetInnerHTML={{ __html: postInfo.content }} className='font-work'></div>
       </div>
       </div>
     </>

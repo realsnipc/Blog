@@ -53,7 +53,7 @@ function Header() {
           {
             userInfo && (
               <>
-                <Link to='/user' className='nav_item'>                <img src={catPfp} alt="pfp" className='w-7 rounded-2xl h-7 cursor-pointer' /></Link>
+                <Link to='/user' className='nav_item'>                <img src="https://source.unsplash.com/random/900×700/?nature" alt="pfp" className='w-7 rounded-2xl h-7 cursor-pointer' /></Link>
                 <Link to='/create' className='nav_item'>Create</Link>
                 <Link className='nav_item' onClick={logout}>Logout</Link>
               </>

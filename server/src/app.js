@@ -167,7 +167,7 @@ jwt.verify(token,secret,{} ,async (err)=>{
         res.status(400).json("JWT_Error")
     }else{
         // get specific user post from db 
-        let posts=await  postModel.find({ author :{_id: userId} })
+        let posts=await postModel.find({ author :{_id: userId} }).populate('author', ['username']).sort({ createdAt: -1 })
         res.json(posts)
 }
 })
