@@ -1,6 +1,6 @@
 import React, {useContext,useEffect,useState} from 'react';
 import { UserContext } from '../UserContext';
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import Post from '../components/PostCard';
 
 export default function UserPage() {

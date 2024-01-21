@@ -9,23 +9,11 @@ body{
 /* the main element  */
 main{
   padding: 20px;
-  max-width: 900px;
+  max-width: 950px;
   margin: 0 auto;
   height: 1000px;
 }
 
-
-/* header section  */
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  /* Spacing after navbar */
-  margin-bottom: 50px;
-}
-
-/* "SniSays" styling  */
 #logo {
   font-family: Work Sans;
   font-size: 28.355px;
@@ -34,23 +22,10 @@ header {
   color: inherit;
 }
 
-
-/* the nav container of Login  and other elements */
-header nav{
-  display: flex;
-  gap: 15px;
+#navbar{
+  margin-bottom: 30px;
 }
 
-
-/* nav item styles  */
-.nav_item {
-  color: inherit;
-  font-family: Work Sans;
-  font-size: 17.363px;
-  font-style: normal;
-  font-weight: 400;
-  text-decoration: none;
-}
 
 
 /* entries/content  */
@@ -66,10 +41,6 @@ header nav{
   border-radius: 15px;
   margin-right: 20px;
 
-}
-
-.entry h2,p{
-  /* font-family: Inter; */
 }
 
 .text_entry h2{
