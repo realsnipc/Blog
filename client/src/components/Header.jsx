@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Link as RouteLink } from "react-router-dom";
 import { UserContext } from "../UserContext";
-import { GiCoolSpices } from "react-icons/gi";
+import { PiShootingStarLight } from "react-icons/pi";
 import {
   Navbar,
   NavbarBrand,
@@ -67,7 +67,7 @@ function Header() {
         />
         <NavbarBrand>
           <RouteLink id="logo" to="/">
-            <GiCoolSpices />
+          <PiShootingStarLight />
           </RouteLink>
         </NavbarBrand>
         <NavbarContent
