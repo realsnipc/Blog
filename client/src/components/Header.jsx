@@ -105,7 +105,7 @@ function Header() {
             </>
           )}
         </NavbarContent>
-        <NavbarMenu className="font-work pt-10">
+        <NavbarMenu className="font-work pt-10 bg-inherit">
         
           <NavbarMenuItem >
             <Link onClick={logout} className="cursor-pointer">
