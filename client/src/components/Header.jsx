@@ -80,9 +80,12 @@ function Header() {
               <NavbarItem className="hidden lg:flex cursor-pointer">
                 <Link onClick={logout}>Logout</Link>
               </NavbarItem>
+              <NavbarItem className="hidden lg:flex cursor-pointer">
+                  <Link href="/create"> Create</Link>
+              </NavbarItem>
               <NavbarItem>
                 <Button color="primary" variant="flat">
-                  <RouteLink to={"/create"}> Create</RouteLink>
+                  <RouteLink to={"/user"}> Your Posts</RouteLink>
                 </Button>
               </NavbarItem>
             </>
@@ -107,6 +110,17 @@ function Header() {
         </NavbarContent>
         <NavbarMenu className="font-work pt-10 bg-inherit">
         
+        {
+          userInfo && (
+            <>
+            <NavbarMenuItem >
+            <Link href="/user" className="cursor-pointer">
+            Your Posts
+            </Link>
+          </NavbarMenuItem>
+            </>
+          )
+        }
           <NavbarMenuItem >
             <Link onClick={logout} className="cursor-pointer">
             Logout
