@@ -9,21 +9,19 @@ Source code of my personal blog. I upload articles here about my experiences, da
 
 
 ### Want to test?
-I've created test user with `t` as username and password or login into Guest account by clicking on **'Guest Login'** button. You can create, edit and delete posts. 
-
-**NOTE**: Your created posts will be only visible on user profile by clicking the profile picture and not visible on the homepage. 
+Click on **'Guest Login'** button to get testing user and password. You wil be allowed to create, edit and delete posts but your created posts will be only visible on user profile **NOT** visible on the homepage. To view your posts go to 'Your Posts' secion from the navbar.
 
 ![img](./client/src/assets/login.png)
 
-###  Wanna deploy yourself?
+###  Wanna run for yourself?
 
-#### Setup
+Install all dependencies of `/server` and `/client` seperately. Install the Environment variables and you are good to go!
 
 Environment variables in `server/.env`
 ```
-DB_USER= MongoDB user
-DB_PASS= MongoDB password
-PORT= Server Port
+DB_USER= MongoDB user (eg. cooluser)
+DB_PASS= MongoDB password (eg. coolpassword)
+PORT= Server Port (eg. 5000)
 CLIENT_URL= Client Origin (eg. example.com)
 ```
 
