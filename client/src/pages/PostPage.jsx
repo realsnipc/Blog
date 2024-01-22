@@ -10,6 +10,8 @@ import {
   ModalFooter,
   useDisclosure
 } from "@nextui-org/react";
+import PostCardSkeleton from "../components/Skeletons/PostCardSkeleton";
+import PostPageSkeleton from "../components/Skeletons/PostPageSkeleton";
 
 function PostPage() {
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
@@ -45,7 +47,7 @@ function PostPage() {
     return <Navigate to={"/"} />;
   }
   if (!postInfo) {
-    return <div className="animated tdFadeOut">Loading...</div>;
+    return <PostPageSkeleton/>;
   }
 
   return (
