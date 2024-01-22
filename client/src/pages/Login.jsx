@@ -1,6 +1,7 @@
 import React, { useState , useContext} from 'react'
-import {Navigate} from 'react-router-dom'
+import {Link, Navigate} from 'react-router-dom'
 import {UserContext} from '../UserContext'
+import{Button} from '@nextui-org/react'
 
 function Login() {
 
@@ -14,8 +15,7 @@ function Login() {
   const backendUrl= import.meta.env.VITE_SERVER || "http://localhost:7777"
 
   // Authenticate 
-  async function login(ev) {
-    ev.preventDefault();
+  async function login() {
     const response = await fetch(backendUrl+'/login',{
       method: 'POST',
       body: JSON.stringify({username,password}),
@@ -49,7 +49,7 @@ function Login() {
     return <Navigate to='/'/>
   }
   return (
-    <div className="flex justify-center flex-col items-center animated tdFadeIn">
+    <div className="flex justify-center flex-col items-center animated tdFadeIn font-work">
       <h1 className='font-work text-2xl font-bold'>Sudo Login</h1>
 
       <form action="" className='flex flex-col'>
@@ -60,8 +60,14 @@ function Login() {
         <input type="text" placeholder='password'className="bg-bg border-solid border-gray-500 border rounded-md mt-1 h-8 p-3" value={password}onChange={(event=>{
           setPassword(event.target.value);
         })}/>
-        <button className='bg-primary border-solid border-gray-500 border rounded-md mt-3 h-8 text-white' onClick={login}>:D</button>
+
+        <Button color='primary' className="mt-2" onPress={login}>Login</Button>
+
       </form>
+      or
+<Button color='primary'>Guest login</Button>
+
+      
     </div>
   )
 }

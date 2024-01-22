@@ -13,7 +13,7 @@ export default function PostPageSkeleton() {
       <Skeleton count={7} width={"100%"} height={"20px"} />
 
       <div className="mt-4">
-      <Skeleton count={5} width={"100%"} height={"20px"} /></div>
+      <Skeleton count={10} width={"100%"} height={"20px"} /></div>
     </>
   );
 }
