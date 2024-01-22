@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from "react";
-import { Link as RouteLink } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Navigate, Link as RouteLink } from "react-router-dom";
 import { UserContext } from "../UserContext";
 import { PiShootingStarLight } from "react-icons/pi";
 import {
@@ -11,7 +11,7 @@ import {
   Button,
   NavbarMenuToggle,
   NavbarMenu,
-  NavbarMenuItem
+  NavbarMenuItem,
 } from "@nextui-org/react";
 
 function Header() {
@@ -19,22 +19,18 @@ function Header() {
   const backendUrl = import.meta.env.VITE_SERVER || "http://localhost:7777";
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  // If user is logged in, then define username
-  if (userInfo) {
-    var username = userInfo.username;
-  }
   // Clear token on logout
   async function logout() {
     await fetch(backendUrl + "/logout", {
       credentials: "include",
     });
     setUserInfo(false);
-    window.location = "/";
+    setRedirect(true);
   }
+
   // Get user data
   useEffect(() => {
     try {
-      // Fetch cookie if user is logged in (checks if userinfo is null)
       if (!userInfo) {
         fetch(backendUrl + "/profile", {
           credentials: "include",
@@ -48,12 +44,12 @@ function Header() {
           });
         });
       }
-
-      // handle error if any
     } catch (error) {
       setUserInfo(null);
     }
   }, []);
+
+
   return (
     <>
       <Navbar
@@ -67,7 +63,7 @@ function Header() {
         />
         <NavbarBrand>
           <RouteLink id="logo" to="/">
-          <PiShootingStarLight />
+            <PiShootingStarLight />
           </RouteLink>
         </NavbarBrand>
         <NavbarContent
@@ -81,7 +77,7 @@ function Header() {
                 <Link onClick={logout}>Logout</Link>
               </NavbarItem>
               <NavbarItem className="hidden lg:flex cursor-pointer">
-                  <Link href="/create"> Create</Link>
+                <Link href="/create"> Create</Link>
               </NavbarItem>
               <NavbarItem>
                 <Button color="primary" variant="flat">
@@ -109,34 +105,27 @@ function Header() {
           )}
         </NavbarContent>
         <NavbarMenu className="font-work pt-10 bg-inherit">
-        
-        {
-          userInfo && (
+          {userInfo && (
             <>
-            <NavbarMenuItem >
-            <Link href="/user" className="cursor-pointer">
-            Your Posts
-            </Link>
-          </NavbarMenuItem>
+              <NavbarMenuItem>
+                <Link href="/user" className="cursor-pointer">
+                  Your Posts
+                </Link>
+              </NavbarMenuItem>
             </>
-          )
-        }
-          <NavbarMenuItem >
+          )}
+          <NavbarMenuItem>
             <Link onClick={logout} className="cursor-pointer">
-            Logout
+              Logout
             </Link>
           </NavbarMenuItem>
-          <NavbarMenuItem >
-            <Link href="/create">
-            Create
-            </Link>
+          <NavbarMenuItem>
+            <Link href="/create">Create</Link>
           </NavbarMenuItem>
-          <NavbarMenuItem >
-            <Link href="https://github.com/realsnipc/blog">
-            Source
-            </Link>
+          <NavbarMenuItem>
+            <Link href="https://github.com/realsnipc/blog">Source</Link>
           </NavbarMenuItem>
-      </NavbarMenu>
+        </NavbarMenu>
       </Navbar>
     </>
   );
