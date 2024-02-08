@@ -1,4 +1,4 @@
-# Snip's Blog
+# Shaurya's Blog
 Source code of my personal blog. I upload articles here about my experiences, daily life and share my thoughts on random topics. 🍃
 
 ### Stack
@@ -9,7 +9,7 @@ Source code of my personal blog. I upload articles here about my experiences, da
 
 
 ### Want to test?
-Click on **'Guest Login'** button to get testing user and password. You wil be allowed to create, edit and delete posts but your created posts will be only visible on user profile and **NOT** visible on the homepage. To view your posts go to 'Your Posts' secion from the navbar.
+Click on **'Guest Login'** button to get testing user and password. You wil be allowed to create, edit and delete posts but your created posts will be only visible on user profile and **NOT** visible on the homepage. To view your posts go to 'Your Posts' section from the navbar.
 
 ![img](./client/src/assets/login.png)
 
