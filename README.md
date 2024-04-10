@@ -4,10 +4,11 @@ This is the source code for my personal blog. I upload articles here about my ex
 
 ### Tech Stack
 
-React.js
-Next UI
-Express.js
-MongoDB + Mongoose
+- React.js
+- Next UI
+- Express.js
+- MongoDB + Mongoose
+- 
 ### Want to Test the Blog?
 
 Click the 'Guest Login' button to get temporary user credentials. This guest account allows you to create, edit, and delete posts. However, your created posts will only be visible on your user profile and not on the homepage. To view your posts, go to the 'Your Posts' section from the navbar.
