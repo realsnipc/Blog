@@ -1,31 +1,31 @@
-# Shaurya's Blog
-Source code of my personal blog. I upload articles here about my experiences, daily life and share my thoughts on random topics. 🍃
+## Shaurya's Blog
 
-### Stack
-- React.js
-- Next UI
-- Express.js
-- MongoDB + Mongoose
+This is the source code for my personal blog. I upload articles here about my experiences, daily life, and share my thoughts on various topics.
 
+### Tech Stack
 
-### Want to test?
-Click on **'Guest Login'** button to get testing user and password. You wil be allowed to create, edit and delete posts but your created posts will be only visible on user profile and **NOT** visible on the homepage. To view your posts go to 'Your Posts' section from the navbar.
+React.js
+Next UI
+Express.js
+MongoDB + Mongoose
+### Want to Test the Blog?
 
-![img](./client/src/assets/login.png)
+Click the 'Guest Login' button to get temporary user credentials. This guest account allows you to create, edit, and delete posts. However, your created posts will only be visible on your user profile and not on the homepage. To view your posts, go to the 'Your Posts' section from the navbar.
 
-###  Wanna run for yourself?
+Login Image: ./client/src/assets/login.png
 
-Install all dependencies of `/server` and `/client` seperately. Setup the Environment variables and you are good to go!
+### Running the Blog Locally
 
-Environment variables in `server/.env`
-```
-DB_USER= MongoDB user (eg. cooluser)
-DB_PASS= MongoDB password (eg. coolpassword)
-PORT= Server Port (eg. 5000)
-CLIENT_URL= Client Origin (eg. example.com)
-```
+Install all dependencies for both the /server and /client directories separately.
+Set up the environment variables as described below.
+Environment Variables
 
-Environment variables in `client/.env`
-```/
-VITE_SERVER= Backend endpoint (eg. api.example.com)
-```
+server/.env
+
+DB_USER: Your MongoDB username (e.g., cooluser)
+DB_PASS: Your MongoDB password (e.g., coolpassword)
+PORT: The port on which the server will run (e.g., 5000)
+CLIENT_URL: The origin URL of your client application (e.g., example.com)
+client/.env
+
+VITE_SERVER: The backend API endpoint URL (e.g., api.example.com)
