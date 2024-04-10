@@ -12,7 +12,7 @@ MongoDB + Mongoose
 
 Click the 'Guest Login' button to get temporary user credentials. This guest account allows you to create, edit, and delete posts. However, your created posts will only be visible on your user profile and not on the homepage. To view your posts, go to the 'Your Posts' section from the navbar.
 
-Login Image: ./client/src/assets/login.png
+![].(/client/src/assets/login.png)
 
 ### Running the Blog Locally
 
@@ -21,11 +21,14 @@ Set up the environment variables as described below.
 Environment Variables
 
 server/.env
-
+```
 DB_USER: Your MongoDB username (e.g., cooluser)
 DB_PASS: Your MongoDB password (e.g., coolpassword)
 PORT: The port on which the server will run (e.g., 5000)
 CLIENT_URL: The origin URL of your client application (e.g., example.com)
-client/.env
+```
 
+client/.env
+```
 VITE_SERVER: The backend API endpoint URL (e.g., api.example.com)
+```
