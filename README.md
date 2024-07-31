@@ -1,6 +1,8 @@
 ## Shaurya's Blog
 
-This is the source code for my personal blog. I upload articles here about my experiences, daily life, and share my thoughts on various topics.
+This is the source code for my personal blog. Moreover, I write my thoughts and goals here and rant about different topics (Cringe Alert).
+
+Fun Fact: It's the first full stack application I ever created.
 
 ### Tech Stack
 
