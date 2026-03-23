@@ -1,37 +1,39 @@
 ## Shaurya's Blog
 
-This is the source code for my personal blog. Moreover, I write my thoughts and goals here and rant about different topics (Cringe Alert).
-
-Fun Fact: It's the first full stack application I ever created.
+My personal corner of the internet — where I used to post thoughts, goals, and occasional rant. Also happens to be the first fullstack app I ever built, so it holds a special place.
 
 ### Tech Stack
 
-- React.js
-- Next UI
-- Express.js
-- MongoDB + Mongoose
- 
-### Want to Test the Blog?
+- **React.js** — frontend
+- **Next UI** — components
+- **Express.js** — backend
+- **MongoDB + Mongoose** — database
 
-Click the 'Guest Login' button to get temporary user credentials. This guest account allows you to create, edit, and delete posts. However, your created posts will only be visible on your user profile and not on the homepage. To view your posts, go to the 'Your Posts' section from the navbar.
+### Try It Out
+
+Hit the **Guest Login** button for instant access. As a guest you can create, edit, and delete posts — they'll show up under **Your Posts** in the navbar (not the homepage, to keep things tidy).
+
+
 
 ![](./client/src/assets/login.png)
 
-### Running the Blog Locally
 
-Install all dependencies for both the /server and /client directories separately.
-Set up the environment variables as described below.
-Environment Variables
 
-server/.env
+### Run Locally
+
+Install dependencies in both `/server` and `/client` separately, then set up your env variables:
+
+**`server/.env`**
 ```
-DB_USER: Your MongoDB username (e.g., cooluser)
-DB_PASS: Your MongoDB password (e.g., coolpassword)
-PORT: The port on which the server will run (e.g., 5000)
-CLIENT_URL: The origin URL of your client application (e.g., example.com)
+DB_USER=your_mongodb_username
+DB_PASS=your_mongodb_password
+PORT=5000
+CLIENT_URL=http://localhost:3000
 ```
 
-client/.env
+**`client/.env`**
 ```
-VITE_SERVER: The backend API endpoint URL (e.g., api.example.com)
+VITE_SERVER=http://localhost:5000
 ```
+
+Then start both servers and you're good to go.
